@@ -8,7 +8,8 @@
 #SBATCH -o slb-out-%j.err
 #SBATCH --ntasks=9    # number of MPI tasks, abbreviated by -n
 # additional information for allocated clusters
-#SBATCH -A hpc_hpcadmin6     # account - abbreviated by -A
+#-A hpc_hpcadmin6     # account - abbreviated by -A
+#SBATCH -A loni_train_2020     # account - abbreviated by -A
 #SBATCH -p checkpt  # partition, abbreviated by -p
 #SBATCH --mail-user fchen14@lsu.edu
 #SBATCH --mail-type BEGIN,END
@@ -28,6 +29,8 @@ scontrol show hostnames $SLURM_JOB_NODELIST > slurm_nodefile
 #./pbsnodes.pl
 export PBS_NODEFILE=`generate_pbs_nodefile`
 cat $PBS_NODEFILE
+
+sleep 1800
 #
 # set data and working directories
 #setenv WORKDIR $HOME/mydata
