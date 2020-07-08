@@ -1,0 +1,19 @@
+#!/bin/bash
+#SBATCH --job-name=mpi_job_test      # Job name
+#SBATCH -p workq                     # submit to workq for more than 1 node
+#SBATCH --nodes=2                    # Maximum number of nodes to be allocated
+#SBATCH --ntasks=96                   # Number of MPI tasks (i.e. processes)
+#SBATCH --time=00:05:00              # Wall time limit (days-hrs:min:sec)
+#SBATCH --output=mpi_test_%j.log     # Path to the standard output and error files relative to the working directory
+
+echo "Date              = $(date)"
+echo "Hostname          = $(hostname -s)"
+echo "Working Directory = $(pwd)"
+echo ""
+echo "Slurm Nodes Allocated          = $SLURM_JOB_NODELIST"
+echo "Number of Nodes Allocated      = $SLURM_JOB_NUM_NODES"
+echo "Number of Tasks Allocated      = $SLURM_NTASKS"
+
+module load mvapich2/2.3.3/intel-19.0.5
+srun -n $SLURM_NTASKS ./a.out
+
