@@ -20,5 +20,5 @@ module load mvapich2/2.3.3/intel-19.0.5
 module load lammps/20200303/intel-19.0.5-mvapich-2.3.3
 
 #srun -n $SLURM_NTASKS $(which lmp) -in in.lmp.lj
-srun -n $SLURM_NTASKS -c $SLURM_CPUS_PER_TASK $(which lmp) -in in.lmp.lj
+srun -n $SLURM_NTASKS -c $SLURM_CPUS_PER_TASK $(which lmp) -in in.lmp.lj -pk omp $SLURM_CPUS_PER_TASK -sf omp
 
