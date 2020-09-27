@@ -1,8 +1,8 @@
 #!/bin/bash
 #SBATCH --job-name=mpi_job_test      # Job name
 #SBATCH -p workq                     # For jobs using more than 1 node, submit to workq
-#SBATCH --nodes=1                    # Number of nodes to be allocated
-#SBATCH --ntasks=48                  # Number of MPI tasks (i.e. processes/cores)
+#SBATCH --nodes=2                    # Number of nodes to be allocated
+#SBATCH --ntasks=96                  # Number of MPI tasks (i.e. processes/cores)
 #SBATCH --time=00:05:00              # Wall time limit (hh:mm:ss)
 #SBATCH --output=mpi_test_%j.log     # Standard output and error 
 

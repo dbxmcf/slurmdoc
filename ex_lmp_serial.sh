@@ -1,10 +1,10 @@
 #!/bin/bash
-#SBATCH --job-name=mpi_job_test      # Job name
-#SBATCH -p single                     # For jobs using more than 1 node, submit to workq
-#SBATCH --nodes=1                    # Number of nodes to be allocated
-#SBATCH --ntasks=1                  # Number of MPI tasks (i.e. processes/cores)
-#SBATCH --time=00:30:00              # Wall time limit (hh:mm:ss)
-#SBATCH --output=lmp_serial_%j.log     # Standard output and error 
+#SBATCH --job-name=lmp_serial      # Job name
+#SBATCH -p single                  # For jobs using more than 1 node, submit to workq
+#SBATCH --nodes=1                  # Number of nodes to be allocated
+#SBATCH --ntasks=1                 # Number of MPI tasks (i.e. processes/cores)
+#SBATCH --time=00:30:00            # Wall time limit (hh:mm:ss)
+#SBATCH --output=%x-%j.log    # Standard output and error 
 
 echo "Date              = $(date)"
 echo "Hostname          = $(hostname -s)"
